@@ -1,5 +1,6 @@
 package controll;
 
+import interfaces.ITile;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -7,7 +8,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class Tile extends Group {
+//Varje enskilld tile definieras som ett objekt genom denna klassen. 
+
+public class Tile extends Group implements ITile{
 
 	int increases = 0;
 	boolean fused = false;
@@ -16,6 +19,7 @@ public class Tile extends Group {
 	Rectangle background = new Rectangle();
 	Text number = new Text(50, 55, Integer.toString(value));
 
+	//Det visuella ställs in
 	public Tile() {
 
 		background.setWidth(100);
@@ -34,6 +38,7 @@ public class Tile extends Group {
 		
 	}
 	
+	//bestämmer om rutan ska starta som en 2a eller 4a
 	public void randomSize() {
 
 		if ((int) (Math.random() * 10) + 1 == 1) {
@@ -41,6 +46,7 @@ public class Tile extends Group {
 		}
 	}
 
+	//ökar värdet på rutan och justerar dess utseende efter det.
 	public void increase() {
 		value += value;
 		increases++;
@@ -80,16 +86,18 @@ public class Tile extends Group {
 
 	}
 
-
+//ger värdet på rutan (så den kan jämföras)
 	public int getValue() {
 
 		return value;
 	}
 
+	//kollar om utan redan har satts ihop detta draget
 	public boolean getFuse() {
 		return fused;
 	}
 	
+	//växlar boolean fused.
 	public void switchFuse() {
 		if (fused) {
 			fused = false;
@@ -98,10 +106,12 @@ public class Tile extends Group {
 		}
 	}
 	
+	//kollar hur många gånger den har ökat
 	public int getIncreases() {
 		return increases;
 	}
 	
+	//När en ruta har flyttats så måst den skapas på nytt och denna gör värdet rätt
 	public void setup(int amount) {
 		for (int i = 0; i < amount; i++) {
 			increase();

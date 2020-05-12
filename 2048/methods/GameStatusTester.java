@@ -4,6 +4,7 @@ import controll.Tile;
 
 public class GameStatusTester {
 
+	//använder comparer för att kolla om spelet har hamnat i ett dödläge
 	
 	public static boolean TestMoveable(Tile[][] grid) {
 	

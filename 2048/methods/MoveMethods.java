@@ -2,7 +2,11 @@ package methods;
 
 import controll.Tile;
 
+//tar in en tile array och beroende på vilken riktning så utförs ett enda drag i den riktningen. kommer enbart kommentera en av metoderna men de e samma på alla
+
 public class MoveMethods {
+
+//	flyttar en ruta i taget. Kollar först om nästa ruta är tom, vid svar ja flyttas rutan dit. Vid svar nej kollar den om 2 rutor har samma värde och slår isåfall ihop dem förutsatt att detta inte redan gjorts på en av dem.
 
 	public static Tile[][] left(Tile[][] grid) {
 

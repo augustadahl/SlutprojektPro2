@@ -2,6 +2,8 @@ package methods;
 
 import controll.Tile;
 
+// kollar om 2 olika Tile arrayer är olika varandra. Detta för att på så sätt veta om förändring skett sen senaste draget.
+
 public class Comparer {
 public static boolean compare(Tile[][] grid, Tile[][] comparer) {
 		

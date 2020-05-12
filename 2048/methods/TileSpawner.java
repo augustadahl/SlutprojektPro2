@@ -6,6 +6,8 @@ import controll.Tile;
 
 public class TileSpawner {
 
+	//tar in tile array och skapar en ny tile på slumpmässig tom ruta.
+	 
 	public static Tile[][] spawn(Tile[][] grid) {
 
 		ArrayList<Integer> Col = new ArrayList<Integer>();

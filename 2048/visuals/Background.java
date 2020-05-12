@@ -4,6 +4,8 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+//skapar en bakgrund som används innan själva spelet börjat (enbart av estetiska skäl)
+
 public class Background extends Group{
 
 	public Background(int size) {

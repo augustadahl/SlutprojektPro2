@@ -4,6 +4,8 @@ import controll.Tile;
 
 public class FusedRester {
 
+	//nollställer fused variabeln inför nästa drag
+	
 	public static Tile[][] reset(Tile[][] grid) {
 
 		for (int i = 0; i < grid.length; i++) {

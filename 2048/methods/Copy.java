@@ -4,6 +4,8 @@ import controll.Tile;
 
 public class Copy {
 
+	//kopierar en tile array 
+	
 	public static Tile[][] copy(Tile[][] grid){
 		Tile[][] newgrid = new Tile[grid.length][grid[0].length];
 		

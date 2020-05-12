@@ -2,17 +2,16 @@ package controll;
 
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import methods.Comparer;
 import methods.Copy;
 import methods.GameStatusTester;
 import methods.MoveMethods;
 import methods.TileSpawner;
+import visuals.Endscreen;
 
+//Controller är mellanhanden mellan Mainklassen och metoderna. Controller reagerar på input och skickar vidare den för behandling innan den returnerar resultatet.
+
+//När controller skapas så skapar den ett grid för tiles och fyller den med 2 tiles.
 public class Controller {
 
 	Tile[][] grid = new Tile[4][4];
@@ -24,6 +23,7 @@ public class Controller {
 
 	}
 
+	//när piltangent har tryckts ner så aktiverar denna klassen rätt metod samt kollar om det är nödvänligt att skapa en ny tile.
 	public void move(KeyCode key) {
 
 		Tile[][] comparer = Copy.copy(grid);
@@ -52,6 +52,7 @@ public class Controller {
 		
 	}
 
+	//tar och lägger till samt placerar ut tiles på rätt positioner i gruppen
 	public Group position(Group root) {
 
 		for (int i = 0; i < grid.length; i++) {
@@ -68,6 +69,7 @@ public class Controller {
 
 	}
 	
+	//tar bort alla tiles inför nästa drag
 	public Group remove(Group root) {
 
 		for (int i = 0; i < grid.length; i++) {
@@ -82,21 +84,10 @@ public class Controller {
 
 	}
 	
+	//skickar iväg grid på analys kring spelets körbarhet. Om spelaren kört fast så kallar den på slutskärmen och returnerar gruppen.
 	public Group status(Group root) {
 		if (!GameStatusTester.TestMoveable(grid)) {
-			Rectangle front = new Rectangle();
-			front.setWidth(110 * 4 + 10);
-			front.setHeight(110 * 4 + 10);
-			front.setFill(Color.rgb(0, 0, 0, 0.5));
-			root.getChildren().add(front);
-			
-			Text lose = new Text(225, 225, "Game Over");
-			lose.setFont(Font.font("Verdana", FontWeight.BOLD, 55));
-			lose.setFill(Color.WHITE);
-			
-			lose.setTranslateX(-lose.getBoundsInLocal().getWidth() / 2);
-			lose.setTranslateY(lose.getBoundsInLocal().getHeight() / 4);
-			root.getChildren().add(lose);
+			Endscreen.display(root);
 			return root;
 		}
 		return root;

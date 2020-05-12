@@ -12,6 +12,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import visuals.Background;
 
+//Main klassen tar in input och gör om det till output med hjälp av objektet controller.
+
 public class Main extends Application {
 
 	public static int WindowWidth = 450;
@@ -35,6 +37,8 @@ public class Main extends Application {
 		
 		controller.position(root);
 
+		//ett drag aktiveras om en piltangent tryckts ner.
+		
 		scene.setOnKeyPressed(e -> {
 
 			
