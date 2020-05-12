@@ -38,7 +38,6 @@ public class Tile extends Group {
 
 		if ((int) (Math.random() * 10) + 1 == 1) {
 			increase();
-			System.out.println("Big starter");
 		}
 	}
 

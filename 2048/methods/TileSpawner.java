@@ -6,7 +6,7 @@ import controll.Tile;
 
 public class TileSpawner {
 
-	public Tile[][] spawn(Tile[][] grid) {
+	public static Tile[][] spawn(Tile[][] grid) {
 
 		ArrayList<Integer> Col = new ArrayList<Integer>();
 
